@@ -16,5 +16,9 @@ hello();
 var gb = require('./custom_goodbye');
 gb.goodbye();
 
-// second variant
-require('./custom_goodbye').goodbye();
+// one more method:
+// require('./custom_goodbye').goodbye();
+
+var myMod = require('./my_module');
+myMod.foo();
+myMod.bar();
