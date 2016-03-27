@@ -21,7 +21,14 @@ app.get('/chatroom', function(request, response) {
 
 // Socket
 io.on('connection', function(client){
-  console.log('Client connected...');
+
+
+  //set the nickname associated with this client
+  client.on('join', function(name) {
+    client.nickname = name;
+    console.log(client.nickname + ' join to chat');
+  });
+
   //emit the messages event on the client
   client.emit('messages', "Hello in our chatroom");
   
@@ -29,7 +36,8 @@ io.on('connection', function(client){
   client.on('messages', function(data) {
     console.log(data);
     //broadcats mesage to all other clients connected
-    client.broadcast.emit('messages', data);
+    client.broadcast.emit('messages', client.nickname + ": "+ data);
+    client.emit('messages', client.nickname + ": "+ data);
   });
 
 });
