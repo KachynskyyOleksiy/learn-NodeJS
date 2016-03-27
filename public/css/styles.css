@@ -1,0 +1,12 @@
+.chatblock {
+  border: 2px solid lightgray;
+  border-radius: 8px;
+  height: 300px;
+  margin-right: 5px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+}

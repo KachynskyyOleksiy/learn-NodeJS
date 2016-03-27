@@ -15,12 +15,21 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(request, response) {
   response.sendFile(__dirname + "/index.html");
 });
+app.get('/chatroom', function(request, response) {
+  response.sendFile(__dirname + "/chatroom.html");
+});
 
 // Socket
 io.on('connection', function(client){
   console.log('Client connected...');
   //emit the messages event on the client
   client.emit('messages', { hello: 'world' });
+  
+  //listen for 'messages' events from clients
+  client.on('messages', function(data) {
+    console.log(data);
+  });
+
 });
 
 // Start server
