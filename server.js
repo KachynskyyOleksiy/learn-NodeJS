@@ -1,11 +1,13 @@
-var http = require('http');
+var express = require('express');
+var app = express();
+
+// process.env.PORT is for using env settings, for example deploy on heroku
 var port = process.env.PORT || 8080;
 
-http.createServer(function(request, response) {
-  response.writeHead(200);
-  response.write("Dog is running...\n");
-  response.write("Dog finish!\n");
-  response.end();
-}).listen(port);
+app.get('/', function(request, response) {
+  response.sendFile(__dirname + "/index.html");
+});
 
-console.log("Listening on port "+ port +"...");
+app.listen(port);
+
+console.log("Express listen on port "+ port +"...");
