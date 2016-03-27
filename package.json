@@ -15,5 +15,8 @@
     "url": "https://github.com/KachynskyyOleksiy/learn-NodeJS"
   },
   "author": "Oleksiy",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
