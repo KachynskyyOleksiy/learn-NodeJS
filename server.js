@@ -19,6 +19,8 @@ app.get('/', function(request, response) {
 // Socket
 io.on('connection', function(client){
   console.log('Client connected...');
+  //emit the messages event on the client
+  client.emit('messages', { hello: 'world' });
 });
 
 // Start server
