@@ -8,3 +8,7 @@ $('#chat_form').submit(function (e) {
   socket.emit('messages', message);
   return false;
 });
+
+socket.on('messages', function (data) {
+  $('#chat-log').append(data +'<br/>');
+});

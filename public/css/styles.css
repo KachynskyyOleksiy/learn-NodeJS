@@ -1,3 +1,7 @@
+.jumbotron {
+  height: 100px!important;
+  padding: 10px!important;
+}
 .chatblock {
   border: 2px solid lightgray;
   border-radius: 8px;
