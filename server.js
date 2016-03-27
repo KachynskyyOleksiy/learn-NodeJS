@@ -23,11 +23,13 @@ app.get('/chatroom', function(request, response) {
 io.on('connection', function(client){
   console.log('Client connected...');
   //emit the messages event on the client
-  client.emit('messages', { hello: 'world' });
+  client.emit('messages', "Hello in our chatroom");
   
   //listen for 'messages' events from clients
   client.on('messages', function(data) {
     console.log(data);
+    //broadcats mesage to all other clients connected
+    client.broadcast.emit('messages', data);
   });
 
 });
