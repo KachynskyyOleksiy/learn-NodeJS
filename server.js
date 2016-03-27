@@ -1,24 +1,14 @@
-// var http = require('http');
-// var port = process.env.PORT || 8080;
+var http = require('http');
+var port = process.env.PORT || 8080;
 
-// http.createServer(function(request, response) {
-//   response.writeHead(200);
-//   response.write("Dog is running...\n");
-//   response.write("Dog finish!\n");
-//   response.end();
-// }).listen(port);
+http.createServer(function(request, response) {
+  console.log(request.method+' request come in');
+  response.writeHead(200);
+  response.write("Hello, world");
+  response.end();
+}).listen(port);
 
-// console.log("Listening on port "+ port +"...");
+console.log("Listening on port "+ port +"...");
 
-var hello = require('./custom_hello');
-hello();
-
-var gb = require('./custom_goodbye');
-gb.goodbye();
-
-// one more method:
-// require('./custom_goodbye').goodbye();
-
-var myMod = require('./my_module');
-myMod.foo();
-myMod.bar();
+// For testing run npm start for runnig server 
+// and node request.js in seperate console for send request.
