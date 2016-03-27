@@ -20,7 +20,11 @@ app.get('/weather/', function(request, response) {
   };
 
   var Url = url.format(options);
-  Request(Url).pipe(response); //pipe the request to response
+  Request(Url, function(err, res, body){
+    var weather = JSON.parse(body);
+    response.locals = { weather: weather };
+    response.render('weather.ejs');
+  });
 });
 
 app.listen(port);

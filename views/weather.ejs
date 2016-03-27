@@ -1,0 +1,12 @@
+<h1>City: <%= weather.city_name %> </h1>
+<h2>Country: <%= weather.country %> </h2>
+
+<ul>
+  <% weather.days.forEach(function(day){ %>
+    <li> 
+      Day: <%= day.datetime %>  <br>
+      hight: <%= day.hight %>   <br>
+      low: <%= day.low %>       <br>
+    </li>
+  <% }); %>
+</ul>
