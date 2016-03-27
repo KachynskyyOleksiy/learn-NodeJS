@@ -12,20 +12,19 @@ app.get('/', function(request, response) {
 });
 
 //route difinition
-app.get('/tweets/:username', function(request, response) {
-  var username = request.params.username;
+app.get('/weather/', function(request, response) {
   var options = {
-    protocol: 'http',
-    host: 'api.twitter.com',
-    pathname: '/1.1/statuses/user_timeline.json',
-    query: { screen_name: username, count: 10} //get the last 10 tweets
+    protocol: 'https',
+    host: 's3.amazonaws.com',
+    pathname: '/codecademy-content/courses/ltp4/forecast-api/forecast.json',
   };
-  var twitterUrl = url.format(options);
-  Request(twitterUrl).pipe(response); //pipe the request to response
+
+  var Url = url.format(options);
+  Request(Url).pipe(response); //pipe the request to response
 });
 
 app.listen(port);
 
 console.log("Express listen on port "+ port +"...");
-
-//this new API need auth. Thats why this code doesn`t work.
+ 
+//In this example I use static json file on amazon server from CodeCademy Angular lesson.
