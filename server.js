@@ -1,5 +1,5 @@
 var express = require('express');
-var request = require('request');
+var Request = require('request');
 var url = require('url');
 
 var app = express();
@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
 });
 
 //route difinition
-app.get('tweets/:username', function(request, response) {
+app.get('/tweets/:username', function(request, response) {
   var username = request.params.username;
   var options = {
     protocol: 'http',
@@ -21,12 +21,11 @@ app.get('tweets/:username', function(request, response) {
     query: { screen_name: username, count: 10} //get the last 10 tweets
   };
   var twitterUrl = url.format(options);
-  request(twitterUrl).pipe(response); //pipe the request to response
+  Request(twitterUrl).pipe(response); //pipe the request to response
 });
 
 app.listen(port);
 
 console.log("Express listen on port "+ port +"...");
-
 
 //this new API need auth. Thats why this code doesn`t work.
