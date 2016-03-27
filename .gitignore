@@ -35,3 +35,4 @@ jspm_packages
 
 # FrontEnd libs
 public/libs/
+bower_components/
