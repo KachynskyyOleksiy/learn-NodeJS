@@ -2,9 +2,9 @@ var http = require('http');
 var port = process.env.PORT || 8080;
 
 http.createServer(function(request, response) {
-  console.log(request.method+' request come in');
+  console.log(request.method+' request come in.');
   response.writeHead(200);
-  response.write("Hello, world");
+  response.write("Request accepted");
   response.end();
 }).listen(port);
 
